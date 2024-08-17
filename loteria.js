@@ -75,7 +75,7 @@ function displayCartones(cartones, pagina) {
             const img = document.createElement('img');
             img.src = `images/${image}`;
             if (marcados[image]) {
-                img.style.opacity = '0.5'; // Mantener la marca si ya está marcada
+                img.style.opacity = '0.10'; // Mantener la marca si ya está marcada
             }
             cartonDiv.appendChild(img);
         });
