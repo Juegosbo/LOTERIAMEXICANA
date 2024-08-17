@@ -16,6 +16,7 @@ const images = [
 const totalCartones = 50;
 const cartonesPorPagina = 4;
 let paginaActual = 1;
+let marcados = {};
 
 const cartonesContainer = document.getElementById('cartones-container');
 const paginationContainer = document.getElementById('pagination');
@@ -73,6 +74,9 @@ function displayCartones(cartones, pagina) {
         carton.imagenes.forEach(image => {
             const img = document.createElement('img');
             img.src = `images/${image}`;
+            if (marcados[image]) {
+                img.style.opacity = '0.5'; // Mantener la marca si ya está marcada
+            }
             cartonDiv.appendChild(img);
         });
 
@@ -108,27 +112,29 @@ function createCartonMaestro() {
 
 // Marcar imagen en los cartones de los jugadores
 function marcarImagenEnCartones(imagen) {
-    const cartones = JSON.parse(localStorage.getItem('cartones'));
-
-    cartones.forEach(carton => {
-        const index = carton.imagenes.indexOf(imagen);
-        if (index !== -1) {
-            const cartonesDivs = cartonesContainer.querySelectorAll('.carton');
-            cartonesDivs.forEach(cartonDiv => {
-                const imgs = cartonDiv.querySelectorAll('img');
-                imgs.forEach(img => {
-                    if (img.src.includes(imagen)) {
-                        img.style.opacity = '0.10'; // Marcar imagen
-                    }
-                });
-            });
-        }
-    });
+    marcados[imagen] = true;
+    displayCartones(cartones, paginaActual);
 }
+
+// Función para buscar un cartón por su número
+document.getElementById('buscar-carton').onclick = () => {
+    const numero = prompt('Ingrese el número del cartón que desea buscar:');
+    if (numero) {
+        const cartonIndex = cartones.findIndex(carton => carton.numero == numero);
+        if (cartonIndex !== -1) {
+            const pagina = Math.ceil((cartonIndex + 1) / cartonesPorPagina);
+            paginaActual = pagina;
+            displayCartones(cartones, paginaActual);
+        } else {
+            alert('Cartón no encontrado.');
+        }
+    }
+};
 
 // Reiniciar el juego
 document.getElementById('reset-game').onclick = () => {
     localStorage.removeItem('cartones');
+    marcados = {};
     window.location.reload();
 };
 
