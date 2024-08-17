@@ -25,24 +25,36 @@ function shuffle(array) {
 }
 
 function createCarton(images) {
-    const carton = document.createElement('div');
-    carton.className = 'carton';
-    
+    const carton = [];
     const shuffledImages = shuffle(images.slice()).slice(0, 16); // Tomamos 16 imágenes aleatorias
     shuffledImages.forEach(image => {
-        const img = document.createElement('img');
-        img.src = `images/${image}`; // Asegúrate de que las imágenes estén en la carpeta 'images'
-        carton.appendChild(img);
+        carton.push(image);
     });
-
     return carton;
 }
 
 function generateCartones() {
-    for (let i = 0; i < totalCartones; i++) {
-        const carton = createCarton(images);
-        cartonesContainer.appendChild(carton);
+    let cartones = JSON.parse(localStorage.getItem('cartones'));
+    
+    if (!cartones) {
+        cartones = [];
+        for (let i = 0; i < totalCartones; i++) {
+            const carton = createCarton(images);
+            cartones.push(carton);
+        }
+        localStorage.setItem('cartones', JSON.stringify(cartones));
     }
+
+    cartones.forEach(carton => {
+        const cartonDiv = document.createElement('div');
+        cartonDiv.className = 'carton';
+        carton.forEach(image => {
+            const img = document.createElement('img');
+            img.src = `images/${image}`; // Asegúrate de que las imágenes estén en la carpeta 'images'
+            cartonDiv.appendChild(img);
+        });
+        cartonesContainer.appendChild(cartonDiv);
+    });
 }
 
 generateCartones();
