@@ -17,30 +17,32 @@ const totalCartones = 50;
 const cartonesContainer = document.getElementById('cartones');
 
 function shuffle(array) {
-   for (let i = array.length - 1; i > 0; i--) {
-     const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j]], array[i];
-   }
-  return array;
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
 }
 
 function createCarton(images) {
-const carton = document.createElement('div');
-carton.calssName = 'carton';
+    const carton = document.createElement('div');
+    carton.className = 'carton';
+    
+    const shuffledImages = shuffle(images.slice()).slice(0, 16); // Tomamos 16 imágenes aleatorias
+    shuffledImages.forEach(image => {
+        const img = document.createElement('img');
+        img.src = `images/${image}`; // Asegúrate de que las imágenes estén en la carpeta 'images'
+        carton.appendChild(img);
+    });
 
-const shuffledImagens = shuffle(images.slice()).slice(0,6) //tomamos 16 imagen aletorias
-shuffledImages.forEach(image => {
-const img = document.createElement('img');
-img.src = 'images/${image]'; //asumiendo que las imagenes estan en una carpeta llamado images
-carton.appendChild(img);
-});
-return carton;
+    return carton;
 }
 
 function generateCartones() {
-  for (let i = 0; i < totalCartones; i++) {
-      const carton = createCarton(images);
-      cartonesContainer.appendChild(carton);
-  }
+    for (let i = 0; i < totalCartones; i++) {
+        const carton = createCarton(images);
+        cartonesContainer.appendChild(carton);
+    }
 }
+
 generateCartones();
