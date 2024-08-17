@@ -8,20 +8,35 @@ h1 {
     margin-bottom: 20px;
 }
 
-.carton-maestro, .cartones-container {
-    display: grid;
-    gap: 10px;
+.game-container {
+    display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    align-items: flex-start;
+    gap: 20px;
 }
 
 .carton-maestro {
-    grid-template-columns: repeat(6, 1fr); /* 6 columnas para el cartón maestro */
-    width: 80%;
+    width: 25%;
+    text-align: center;
+}
+
+.carton-maestro .carton {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.carton-maestro .carton img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
 }
 
 .cartones-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas, 2 filas para los cartones de jugadores */
+    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
@@ -29,9 +44,9 @@ h1 {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    gap: 5px;
+    gap: 2px;
     border: 2px solid #000;
-    padding: 10px;
+    padding: 5px;
     position: relative;
 }
 
@@ -44,9 +59,9 @@ h1 {
     position: absolute;
     top: -20px;
     left: 10px;
-    font-size: 16px;
+    font-size: 14px;
     background: #fff;
-    padding: 5px;
+    padding: 3px;
     border-radius: 5px;
 }
 
