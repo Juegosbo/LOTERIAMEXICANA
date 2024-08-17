@@ -13,7 +13,6 @@ const images = [
     'imagen51.PNG', 'imagen52.PNG', 'imagen53.PNG', 'imagen54.PNG'
 ];
 
-
 const totalCartones = 50;
 const cartonesPorPagina = 4;
 let paginaActual = 1;
