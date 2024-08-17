@@ -1,15 +1,16 @@
-conts images = [
-  'imagen1.PNG', 'imagen2.PNG', 'imagen3.PNG', 'imagen4.PNG', 'imagen5.PNG', 
-    'imagen6.PNG', 'imagen7.PNG', 'imagen8.PNG', 'imagen9.PNG', 'imagen10.PNG', 
-    'imagen11.PNG', 'imagen12.PNG', 'imagen13.PNG', 'imagen14.PNG', 'imagen15.PNG', 
-    'imagen16.PNG', 'imagen17.PNG', 'imagen18.PNG', 'imagen19.PNG', 'imagen20.PNG', 
-    'imagen21.PNG', 'imagen22.PNG', 'imagen23.PNG', 'imagen24.PNG', 'imagen25.PNG', 
-    'imagen26.PNG', 'imagen27.PNG', 'imagen28.PNG', 'imagen29.PNG', 'imagen30.PNG', 
-    'imagen31.PNG', 'imagen32.PNG', 'imagen33.PNG', 'imagen34.PNG', 'imagen35.PNG', 
-    'imagen36.PNG', 'imagen37.PNG', 'imagen38.PNG', 'imagen39.PNG', 'imagen40.PNG', 
-    'imagen41.PNG', 'imagen42.PNG', 'imagen43.PNG', 'imagen44.PNG', 'imagen45.PNG', 
-    'imagen46.PNG', 'imagen47.PNG', 'imagen48.PNG', 'imagen49.PNG', 'imagen50.PNG', 
-    'imagen51.PNG', 'imagen52.PNG', 'imagen53.PNG', 'imagen54.PNG'
+// Asegúrate de que el array de imágenes esté definido correctamente
+const images = [
+    'imagen1.png', 'imagen2.png', 'imagen3.png', 'imagen4.png', 'imagen5.png', 
+    'imagen6.png', 'imagen7.png', 'imagen8.png', 'imagen9.png', 'imagen10.png', 
+    'imagen11.png', 'imagen12.png', 'imagen13.png', 'imagen14.png', 'imagen15.png', 
+    'imagen16.png', 'imagen17.png', 'imagen18.png', 'imagen19.png', 'imagen20.png', 
+    'imagen21.png', 'imagen22.png', 'imagen23.png', 'imagen24.png', 'imagen25.png', 
+    'imagen26.png', 'imagen27.png', 'imagen28.png', 'imagen29.png', 'imagen30.png', 
+    'imagen31.png', 'imagen32.png', 'imagen33.png', 'imagen34.png', 'imagen35.png', 
+    'imagen36.png', 'imagen37.png', 'imagen38.png', 'imagen39.png', 'imagen40.png', 
+    'imagen41.png', 'imagen42.png', 'imagen43.png', 'imagen44.png', 'imagen45.png', 
+    'imagen46.png', 'imagen47.png', 'imagen48.png', 'imagen49.png', 'imagen50.png', 
+    'imagen51.png', 'imagen52.png', 'imagen53.png', 'imagen54.png'
 ];
 
 const totalCartones = 50;
