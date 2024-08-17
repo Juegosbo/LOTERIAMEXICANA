@@ -118,7 +118,7 @@ function marcarImagenEnCartones(imagen) {
                 const imgs = cartonDiv.querySelectorAll('img');
                 imgs.forEach(img => {
                     if (img.src.includes(imagen)) {
-                        img.style.opacity = '0.5'; // Marcar imagen
+                        img.style.opacity = '0.10'; // Marcar imagen
                     }
                 });
             });
